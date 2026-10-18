@@ -3,7 +3,7 @@ version: "3.9"
 
 services:
   devopsdb:
-    image: shaikmustafa/flm-oct:db
+    image: pushpanjalidudi/application:db
     ports:
       - "3306:3306"
     deploy:
@@ -21,7 +21,7 @@ services:
       - mydata:/var/lib/mysql
 
   application:
-    image: shaikmustafa/flm-oct:javaapp
+    image: pushpanjalidudi/application:javaapp
     ports:
       - "1111:8080"
     deploy:
