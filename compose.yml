@@ -1,5 +1,6 @@
 version: "3.9"
 
+
 services:
   devopsdb:
     image: shaikmustafa/flm-oct:db
@@ -7,8 +8,17 @@ services:
       - "3306:3306"
     deploy:
       replicas: 1
+      resources:
+        reservations:
+          cpus: "0.5"
+          memory: 100M
+        limits:
+          cpus: "1.0"
+          memory: 200M
     networks:
       - mynetwork
+    volumes:
+      - mydata:/var/lib/mysql
 
   application:
     image: shaikmustafa/flm-oct:javaapp
@@ -16,6 +26,13 @@ services:
       - "1111:8080"
     deploy:
       replicas: 3
+      resources:
+        reservations:
+          cpus: "0.5"
+          memory: 100M
+        limits:
+          cpus: "1.0"
+          memory: 200M
     depends_on:
       - devopsdb
     networks:
@@ -24,3 +41,6 @@ services:
 networks:
   mynetwork:
     driver: overlay
+
+volumes:
+  mydata:
