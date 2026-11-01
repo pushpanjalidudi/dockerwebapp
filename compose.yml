@@ -13,8 +13,7 @@ services:
       - mynetwork
     volumes:
       - mydata:/var/lib/mysql
-    secrets:
-      - pushpa
+    
 
   application:
     image: pushpanjalidudi/appimage1:java1
