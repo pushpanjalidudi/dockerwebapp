@@ -4,7 +4,7 @@ version: "3.9"
 
 services:
   devopsdb:
-    image: pushpanjalidudi/dbimage:db1
+    image: pushpanjalidudi/dbimage1:db1
     ports:
       - "3306:3306"
     deploy:
@@ -17,7 +17,7 @@ services:
       - pushpa
 
   application:
-    image: pushpanjalidudi/appimage:java1
+    image: pushpanjalidudi/appimage1:java1
     ports:
       - "1111:8080"
     deploy:
